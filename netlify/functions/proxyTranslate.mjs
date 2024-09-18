@@ -20,7 +20,7 @@ exports.handler = async (event) => {
   const endpoint = 'https://api-free.deepl.com/v2/translate';
   const allowedOrigins = [
     'https://ruan-moraes.github.io',
-    'http://127.0.0.1:5500',
+    // '*', // Para testes locais
   ];
 
   const allowOrigin = getAllowOrigin(event, allowedOrigins);
@@ -49,7 +49,7 @@ exports.handler = async (event) => {
     };
   } catch (error) {
     console.error('Erro interno no servidor:', error);
-    
+
     return {
       statusCode: 500,
       headers: buildHeaders(allowOrigin),
